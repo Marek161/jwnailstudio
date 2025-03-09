@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JW Nail Studio - Testy Jednostkowe</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h1 {
+        color: #ff69b4;
+        text-align: center;
+      }
+      .test-container {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .test-results {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .success {
+        color: #28a745;
+      }
+      .error {
+        color: #dc3545;
+      }
+      button {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        margin-top: 10px;
+      }
+      button:hover {
+        background-color: #ff1493;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JW Nail Studio - Testy Jednostkowe</h1>
+
+    <div class="test-container">
+      <h2>Panel testów</h2>
+      <p>
+        Kliknij przycisk poniżej, aby uruchomić testy jednostkowe dla strony JW
+        Nail Studio.
+      </p>
+      <button id="run-tests">Uruchom testy</button>
+
+      <h3>Wyniki testów:</h3>
+      <div id="test-results" class="test-results">
+        <p>Wyniki testów pojawią się tutaj po uruchomieniu.</p>
+      </div>
+    </div>
+
+    <script>
+      // Funkcja do przechwytywania logów konsoli
+      (function () {
+        const resultsDiv = document.getElementById("test-results");
+        const originalConsoleLog = console.log;
+        const originalConsoleError = console.error;
+        const originalConsoleAssert = console.assert;
+
+        // Czyszczenie wyników
+        function clearResults() {
+          resultsDiv.innerHTML = "";
+        }
+
+        // Dodawanie wiadomości do wyników
+        function addMessage(message, type) {
+          const p = document.createElement("p");
+          p.textContent = message;
+          if (type) {
+            p.classList.add(type);
+          }
+          resultsDiv.appendChild(p);
+          resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+
+        // Nadpisanie console.log
+        console.log = function (message) {
+          originalConsoleLog.apply(console, arguments);
+          addMessage(message);
+        };
+
+        // Nadpisanie console.error
+        console.error = function (message, error) {
+          originalConsoleError.apply(console, arguments);
+          if (error && error.stack) {
+            addMessage(message + ": " + error.stack, "error");
+          } else {
+            addMessage(message, "error");
+          }
+        };
+
+        // Nadpisanie console.assert
+        console.assert = function (condition, message) {
+          if (!condition) {
+            originalConsoleAssert.apply(console, arguments);
+            addMessage("Assertion failed: " + message, "error");
+          }
+        };
+
+        // Obsługa przycisku uruchamiania testów
+        document
+          .getElementById("run-tests")
+          .addEventListener("click", function () {
+            clearResults();
+            addMessage("Uruchamianie testów...");
+
+            // Dynamiczne ładowanie skryptu testów
+            const script = document.createElement("script");
+            script.src = "js/tests.js?v=" + new Date().getTime();
+            script.onload = function () {
+              if (typeof runTests === "function") {
+                try {
+                  runTests();
+                  addMessage("Testy zakończone!", "success");
+                } catch (error) {
+                  addMessage(
+                    "Błąd podczas wykonywania testów: " + error.message,
+                    "error"
+                  );
+                }
+              } else {
+                addMessage("Funkcja runTests nie została znaleziona!", "error");
+              }
+            };
+            script.onerror = function () {
+              addMessage("Nie można załadować pliku testów!", "error");
+            };
+            document.body.appendChild(script);
+          });
+      })();
+    </script>
+  </body>
+</html>

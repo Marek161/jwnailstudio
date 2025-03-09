@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>500 - Błąd serwera | JW Nail Studio</title>
+    <style>
+      :root {
+        --primary-color: #ff69b4;
+        --text-color: #333;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .error-container {
+        max-width: 600px;
+        background-color: var(--white);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 30px;
+        font-size: 1.2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+      }
+
+      .error-code {
+        font-size: 8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        opacity: 0.2;
+        position: absolute;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="error-container">
+      <div class="error-code">500</div>
+      <h1>Błąd serwera</h1>
+      <p>
+        Przepraszamy, wystąpił wewnętrzny błąd serwera. Pracujemy nad
+        rozwiązaniem problemu.
+      </p>
+      <a href="index.html" class="btn">Wróć do strony głównej</a>
+    </div>
+  </body>
+</html>

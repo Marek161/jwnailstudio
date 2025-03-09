@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /tests.html
+
+Sitemap: https://jwnailstudio.pl/sitemap.xml 
