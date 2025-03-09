@@ -17,21 +17,26 @@
     <script async src="https://www.instagram.com/embed.js"></script>
   </head>
   <body>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Menu główne">
       <div class="container">
         <div class="logo">JW Nail Studio</div>
-        <ul class="nav-links">
-          <li><a href="#home">Strona Główna</a></li>
-          <li><a href="#services">Usługi</a></li>
-          <li><a href="#gallery">Galeria</a></li>
-          <li><a href="#pricing">Cennik</a></li>
-          <li><a href="#contact">Kontakt</a></li>
+        <ul class="nav-links" role="menu">
+          <li role="menuitem"><a href="#home">Strona Główna</a></li>
+          <li role="menuitem"><a href="#services">Usługi</a></li>
+          <li role="menuitem"><a href="#gallery">Galeria</a></li>
+          <li role="menuitem"><a href="#pricing">Cennik</a></li>
+          <li role="menuitem"><a href="#contact">Kontakt</a></li>
         </ul>
-        <div class="hamburger">
+        <button
+          class="hamburger"
+          aria-label="Menu mobilne"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
     </nav>
 

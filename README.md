@@ -48,9 +48,3 @@ JW/
 - Atrybuty ARIA
 - Obsługa klawiatury dla interaktywnych elementów
 - Odpowiedni kontrast kolorów
-
-## Testy
-=======
-# jwnailstudio
-.
->>>>>>> 735c6759a16bfbe146897735047a798b6c77632c

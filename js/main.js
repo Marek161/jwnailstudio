@@ -86,11 +86,67 @@ document.addEventListener("DOMContentLoaded", () => {
   if (logo) setTimeout(animateLogo, 3000);
 
   // Obsługa menu mobilnego
-  if (hamburger) {
+  if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
-      navLinks.style.display =
-        navLinks.style.display === "flex" ? "none" : "flex";
-      hamburger.classList.toggle("active");
+      if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none";
+        hamburger.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = ""; // Przywróć przewijanie strony
+      } else {
+        navLinks.style.display = "flex";
+        hamburger.classList.add("active");
+        hamburger.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden"; // Zablokuj przewijanie strony gdy menu jest otwarte
+      }
+    });
+
+    // Zamykaj menu po kliknięciu w link
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          navLinks.style.display = "none";
+          hamburger.classList.remove("active");
+          hamburger.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }
+      });
+    });
+
+    // Zamykaj menu po kliknięciu poza menu
+    document.addEventListener("click", (e) => {
+      if (
+        window.innerWidth <= 768 &&
+        navLinks.style.display === "flex" &&
+        !navLinks.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        navLinks.style.display = "none";
+        hamburger.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+    });
+
+    // Dostosuj menu przy zmianie rozmiaru okna
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        navLinks.style.display = "flex";
+        hamburger.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      } else if (navLinks.style.display !== "flex") {
+        navLinks.style.display = "none";
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Obsługa klawiatury dla dostępności
+    hamburger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        hamburger.click();
+      }
     });
   }
 
