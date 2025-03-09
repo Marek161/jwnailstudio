@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # JW Nail Studio - Strona Internetowa
 
 Strona internetowa dla salonu stylizacji paznokci JW Nail Studio. Projekt zawiera responsywny design, animacje i interaktywne elementy.
