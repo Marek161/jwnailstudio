@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # JW Nail Studio - Strona Internetowa
 
 Strona internetowa dla salonu stylizacji paznokci JW Nail Studio. Projekt zawiera responsywny design, animacje i interaktywne elementy.
@@ -49,3 +50,7 @@ JW/
 - Odpowiedni kontrast kolorów
 
 ## Testy
+=======
+# jwnailstudio
+.
+>>>>>>> 735c6759a16bfbe146897735047a798b6c77632c
