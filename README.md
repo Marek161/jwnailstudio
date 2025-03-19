@@ -48,6 +48,4 @@ JW/
 - Atrybuty ARIA
 - Obsługa klawiatury dla interaktywnych elementów
 - Odpowiedni kontrast kolorów
-<<<<<<< HEAD
-=======
 
