@@ -4,7 +4,7 @@
 Strona internetowa dla salonu stylizacji paznokci JW Nail Studio. Projekt zawiera responsywny design, animacje i interaktywne elementy.
 
 
-# ➡️  [LINK DO STRONY](https://marek161.github.io/jwnailstudio/)  ⬅️
+### ➡️  [LINK DO STRONY](https://marek161.github.io/jwnailstudio/)  ⬅️
 
 ---
 
