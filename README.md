@@ -2,6 +2,9 @@
 # JW Nail Studio 💄 - Strona Internetowa
 
 Strona internetowa dla salonu stylizacji paznokci JW Nail Studio. Projekt zawiera responsywny design, animacje i interaktywne elementy.
+![CursorHeartGIF](https://github.com/user-attachments/assets/388e8252-431e-4fae-9603-4c7dc35c353c)
+
+
 
 ![podglą-jwnailstudio](https://github.com/user-attachments/assets/ae54de9f-be24-48f8-940a-9ac7ea4a0320)
 ![podglą-jwnailstudio2](https://github.com/user-attachments/assets/d12658ab-c326-450e-8d12-183632c8bd29)
